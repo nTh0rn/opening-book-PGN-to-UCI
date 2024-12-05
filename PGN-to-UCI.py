@@ -27,13 +27,15 @@ for file in PGNFiles:
                 continue
 
             PGNs[i] += l + " " #Add moves to list
-
+            if j % 10000 == 0:
+                print(j, "Completed")
             #Limit number of lines searched
             if perFileLimit != -1 and j > perFileLimit:
                 j=0
                 break
             j += 1
         i += 1
+        j = 0
         PGNs.append("")
 PGNs.pop()
 PGNGames = []
@@ -53,6 +55,7 @@ print("Total of " + str(len(PGNGames)) + " games")
 print("Parsing to UCI & writing to file . . .")
 f = open("UCI.txt", "a")
 counter=0
+skipped = 0
 for PGNGame in PGNGames:
     board = chess.Board()
 
@@ -66,7 +69,6 @@ for PGNGame in PGNGames:
 
     #Convert move to UCI
     UCIGame=""
-    skipped = 0
     for move in PGNGame:
 
         #Occasionally games cannot be parsed.
