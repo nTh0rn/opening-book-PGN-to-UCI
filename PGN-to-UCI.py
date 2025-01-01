@@ -6,9 +6,6 @@ from os import system, name
 #Limit how much of each PGN is read. Set to -1 for no limit. (May result in incomplete games)
 perFileLimit = -1
 
-#Limit how many moves from each game are converted. Set to -1 for no limit.
-perGameLimit = 15
-
 #Path to PGN files
 PGNPath = r'PGNs/*.pgn'
 PGNFiles = glob.glob(PGNPath)
@@ -34,7 +31,7 @@ for file in PGNFiles:
                     
                 PGNGames.append(l)
                 
-                if j % 10000 == 0:
+                if j % 10000 == 0 and j != 0:
                     print(j, "Completed")
                 #Limit number of lines searched
                 if perFileLimit != -1 and j > perFileLimit:
@@ -43,7 +40,7 @@ for file in PGNFiles:
                 j += 1
             j = 0
     except:
-        print("Skipped")
+        print("UTF encoding error, skipping file.")
         continue
 
 print("Total of " + str(len(PGNGames)) + " games")
