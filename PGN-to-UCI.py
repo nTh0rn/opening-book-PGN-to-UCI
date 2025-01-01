@@ -6,6 +6,9 @@ from os import system, name
 #Limit how much of each PGN is read. Set to -1 for no limit. (May result in incomplete games)
 perFileLimit = -1
 
+#Show how much of each file has been read
+showAmount = False
+
 #Path to PGN files
 PGNPath = r'PGNs/*.pgn'
 PGNFiles = glob.glob(PGNPath)
@@ -31,7 +34,7 @@ for file in PGNFiles:
                     
                 PGNGames.append(l)
                 
-                if j % 10000 == 0 and j != 0:
+                if j % 10000 == 0 and j != 0 and showAmount:
                     print(j, "Completed")
                 #Limit number of lines searched
                 if perFileLimit != -1 and j > perFileLimit:
