@@ -37,7 +37,7 @@
 
 <!-- ABOUT -->
 ## About
-This program converts the first 8 plys from each game in a PGN to UCI format in a text file, where each game is its own line. This has only ever been tested on PGNs from [pgnmentor.com](https://www.pgnmentor.com/files.html).
+This program converts the first 8 moves from each game in a PGN to UCI format in a text file, where each game is its own line. This has only ever been tested on PGNs from [pgnmentor.com](https://www.pgnmentor.com/files.html).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
